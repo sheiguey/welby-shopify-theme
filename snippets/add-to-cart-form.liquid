@@ -1,0 +1,29 @@
+<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+
+    {% if product.variants.size>1 %}
+    {% for variant in product.variants %}
+    <input name="id" type="radio" id="variant-{{ forloop.index }}" value="{{variant.id}}">
+    <label for="name">{{variant.title}}</label>
+    {% endfor %}
+    {% else %}
+    <input type="hidden" name="id" value="{{product.variants.first.id}}">
+    {% endif %}
+    {{ current_variant.price | money }}
+    <label for="Quantity">quantity</label>
+    <input type="number" id="Quantity" name="quantity" value="1" min="1" {% if product.variants.size==1 %}
+        max="{{product.variants.first.inventory_quantity}}" {% endif %}>
+
+    <button class="quantity-button minus" type="button" disabled>
+        &ndash;
+    </button>
+
+    <span>
+        1
+    </span>
+
+    <button class="quantity-button plus" type="button">
+        +
+    </button>
+
+    <button type="submit" name="add" id="AddToCart">Add to cart</button>
+</form>

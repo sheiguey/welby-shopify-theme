@@ -1,0 +1,44 @@
+<footer class="footer-global">
+  <div class="footer-top">
+    <ul class="products-list">
+        {{'general.footer.list.products' | t}}
+        {% for product in collections['frontpage'].products limit:4%}     
+        <li>
+        {{- product.title | link_to: product.url }}
+        </li>
+        {% endfor %}
+    </ul>
+    <ul class="contact-list">
+        {{linklists.footer.title}}
+        {% for link in linklists['footer'].links %}
+        <li class="list-item">
+            {{ link.title | link_to: link.url }}
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="about-us">
+        {{'general.about.title' | t}}
+        <p>
+            {{'general.about.description' | t}}
+        </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+     {%  assign copyright_date ='now' |  date:'%Y' %}
+     <span>{{'general.footer.bottom.copyright' | t: date: copyright_date}}</span>
+     <div class="social-links">
+        <a href="{{'general.footer.social.facebook_url' | t}}" target="new">
+        <img src="{{'facebook.svg' |  asset_url}}" alt="{{'general.footer.social.alt' | t: social: 'Facebook'}}" width=""
+            height="" />
+        </a>
+        <a href="https://www.instagram.com/{{'general.footer.social.instagram_handle' | t}}" target="new">
+            <img src="{{'instagram.svg' |  asset_url}}" alt="{{'general.footer.social.alt' | t: social: 'Instagram'}}" width=""
+                height="" />
+        </a>
+        <a href="https://www.twitter.com/{{'general.footer.social.twitter_handle' | t}}" target="new">
+            <img src="{{'twitter.svg' |  asset_url}}" alt="{{'general.footer.social.alt' | t: social: 'Twitter'}}" width=""
+                height="" />
+        </a>
+     </div>
+  </div>
+</footer>

@@ -1,0 +1,28 @@
+<header class="header-global">
+    <a href="/" class="logo">
+     <img src="{{'logo.svg' |  asset_url}}" alt="{{'general.shop.title' | t}}" width="" height=""/>
+    </a>
+    <a href="/" class="shop-link text-link">{{'general.header.nav.shop' | t}}</a>
+
+    {%  assign cart_text ='general.cart.button.count_html' | t: itemCount: cart.item_count  %}
+    {% assign cart_close_text ='general.cart.button.close' | t %}
+    
+    {% if cart.item_count>0 %}
+    <a href="/cart" class="cart-link text-link">{{cart_text}}</a>
+    {%  else %} 
+    <a href="/" class="close-button">{{cart_close_text}}</a>
+    {% endif %}
+
+
+    {% comment %} <a href="/cart">cart</a>
+    {% if shop.customer_accounts_enabled %}
+      {% if customer %}
+        <a href="/account">account</a>
+        {{'log out' | customer_logout_link}}
+      {% else %}
+        {{ 'log in' |  customer_login_link}}
+        {{ 'register' | customer_register_link}}
+      {% endif %}
+    {% endif %} {% endcomment %}
+    
+</header>

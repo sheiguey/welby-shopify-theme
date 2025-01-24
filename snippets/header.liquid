@@ -1,17 +1,17 @@
 <header class="header-global">
-    <a href="/" class="logo">
-     <img src="{{'logo.svg' |  asset_url}}" alt="{{'general.shop.title' | t}}" width="" height=""/>
-    </a>
+   
     <a href="/" class="shop-link text-link">{{'general.header.nav.shop' | t}}</a>
 
+    <a href="/" class="logo shop-link">
+      <img src="{{'logo.svg' |  asset_url}}" alt="{{'general.shop.title' | t}}" width="" height="" />
+    </a>
+    
     {%  assign cart_text ='general.cart.button.count_html' | t: itemCount: cart.item_count  %}
     {% assign cart_close_text ='general.cart.button.close' | t %}
     
-    {% if cart.item_count>0 %}
-    <a href="/cart" class="cart-link text-link">{{cart_text}}</a>
-    {%  else %} 
-    <a href="/" class="close-button">{{cart_close_text}}</a>
-    {% endif %}
+   
+    <a href="/cart" class="shop-link cart-link text-link">{{cart_text}} </a>
+    
 
 
     {% comment %} <a href="/cart">cart</a>

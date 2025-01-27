@@ -1,6 +1,6 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-
+ 
 <div id="page-product" class="wrapper grid two-columns collapse product-card">
   <div class="product-info product-info-section">
     <h1 class="product-title">
@@ -10,7 +10,7 @@
 
     <div class="below-title">
       <div>{{ product.description }}</div>
-      {% render 'add-to-cart-form' %}
+      {% render 'add-to-cart-form' with product as product %}
     </div>
 
   </div>

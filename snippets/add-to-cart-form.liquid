@@ -7,7 +7,7 @@
         </span>
         <div class="option-fieldset">
             {% for variant in product.variants %}
-            <input class="js-variant-radio" name="id" type="radio" id="variant-{{ forloop.index }}" value="{{ variant.id }}"
+            <input class="variant-radio js-variant-radio" name="id" type="radio" id="variant-{{ forloop.index }}" value="{{ variant.id }}"
                 data-inventory-quantity="{{ variant.inventory_quantity }}" {% unless variant.available %} disabled {% endunless
                 %} />
             <label for="variant-{{ forloop.index }}">{{ variant.title }} </label>
@@ -21,9 +21,8 @@
     <div class="option-row">
         <label for="Quantity">quantity</label>
         <div class="option-fieldset">
-            <input type="number" id="Quantity" class="js-quantity-field" name="quantity" value="1" min="1" {% if
+            <input type="number" id="Quantity" class="variant-radio js-quantity-field" name="quantity" value="1" min="1" {% if
                 product.variants.size==1 %} max="{{ product.variants.first.inventory_quantity }}" {% endif %} hidden />
-            
             <button class="quantity-button js-quantity-button minus" type="button" disabled>
                 &ndash;
             </button>
@@ -39,8 +38,7 @@
         </div>
     </div>
     
-   
 
-    <button type="submit" name="add" id="add-to-cart-button" disabled >Add to cart</button>
+    <button type="submit" name="add" id="add-to-cart-button" {% if product.variants.size > 1 %} disabled {% endif %} >Add to cart</button>
 
 </form>

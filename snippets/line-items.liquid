@@ -1,7 +1,7 @@
 <div class="line-item">
     <div class="line-info">
-    <a href="{{ item.url }}">
-        {{ item.product.title }}
+    <a href="{{ item.url }}" class="line-title">
+       <span class="h3"> {{ item.product.title }} </span> 
         <span>{{item.quantity}}</span>
         </a>
     <p>{{ item.variant.title }} &ndash; {{ item.line_price | money_without_trailing_zeros }} {% if item.quantity>1 %} ({{item.price |  money_without_trailing_zeros}}/ea){% endif %}</p>
@@ -14,7 +14,7 @@
           <img src="{{'x-remove.svg' |  asset_url}}" alt="Remove" width="" height=""/> 
         </a>
     </div>
-</div>
+</div> 
 
 
  

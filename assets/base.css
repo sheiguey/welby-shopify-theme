@@ -72,8 +72,7 @@ h1,h2,h3,h4,h5,h6,p,ul,ol{
    font-weight: 400;
 } 
 
-h1,
-h2 {
+h1,.h1,.h2,h2,h3,.h3 {
     font-family: "Geargia",
         'Times New Roman',
         Times,
@@ -89,6 +88,12 @@ h1,.h1{
 
 h2,.h2{
     font-size: 30px;
+}
+
+h3,
+.h3{
+    font-size: 13px;
+    line-height: 20px;
 }
 
 a{
@@ -141,6 +146,29 @@ h4 .copyright{
       column-gap: 0;
       row-gap: 0;
     }
+}
+
+button[type="submit"],.button{
+   appearance: none;
+   cursor: pointer;
+   background: #BEA482;
+   border: none;
+   border-radius: 0;
+   width: 100%;
+   margin-top: 1rem;
+   padding: 20px;
+   line-height: 20px;
+   text-align: center;
+   color: #EEE6DD;
+   &:disabled{
+    opacity: 0.75;
+    cursor: not-allowed;
+    text-decoration: line-through;
+   }
+   &:not(:disabled):hover{
+    background:#bea482b4 ;
+   }
+
 }
 
 .two-columns{
@@ -225,6 +253,10 @@ grid-template-columns: 1fr 1fr;
     padding-bottom: 20px;
 }
 
+.text-white{
+    color: white;
+}
+
 .product-info-section{
     color: #EEE6DD;
     background-color: #333333;
@@ -299,3 +331,85 @@ grid-template-columns: 1fr 1fr;
        object-fit: contain
     }
 }
+
+#add-to-art-form{
+
+}
+
+.option-row{
+  text-align: left;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top:1px solid rgba(255, 255, 255, 0.15);
+  &:last-of-type{
+    border-bottom:1px solid rgba(255,255,255, 0.15);
+  }
+}
+
+.option-title{
+    color: #EEE6DD;
+}
+
+.variant-radio{
+    display: none;
+    & + label{
+       cursor: pointer;
+       display: inline-block;
+       text-transform:uppercase;
+       padding: 2px;
+       border: 1px solid transparent;
+    }
+    &:checked + label{
+        color: #EEE6DD;
+        border: 1px solid rgba(255, 255, 255, 0.80);
+    }
+
+    &:disabled+label{
+        cursor: not-allowed;
+        text-decoration: line-through;
+        color:#555555;
+    }
+}
+
+.quantity-button{
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: 700;
+    color: #EEE6DD;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    &:disabled{
+        opacity: 0.5;
+    }
+
+    &:not(:disabled):hover {
+       color: #EEE6DD;
+    }
+}
+
+.quantity-text{
+    display: inline-block;
+    text-align: center;
+    min-width: 20px;
+    margin: 10px;
+}
+
+
+
+.cart-page-contents{
+    background: #333333;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 380px;
+}
+
+.text-white,.line-item{
+    color: white;
+}
+
+

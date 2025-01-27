@@ -1,6 +1,6 @@
 <div class="text-white">
 {% if cart.item_count > 0 %}
-<p>Your Cart</p>
+<p class="ta-center">Your Cart</p>
 <form action="/cart" method="post" novalidate>
     <div class="cart-lines">
         {% for item in cart.items %}
@@ -8,15 +8,14 @@
         {% endfor %}
     </div>
 
-    <div class="sub-total-line">
+    <div class="subtotal-line">
         <p>sub total : {{ cart.total_price | money }}</p>
         <span class="price">{{cart.total_price | money}}</span>
     </div>
     <button type="submit" name="checkout">Checkout</button>
 </form>
 {% else %}
-<h2>cart</h2>
-<p class="cart-empty-text">
+<p class="cart-empty-text ta-center">
     Your card is empty
 </p>
 <a href="/" class="button">Kepp shoping</a>

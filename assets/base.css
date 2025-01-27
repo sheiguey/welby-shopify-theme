@@ -77,8 +77,6 @@ h1,.h1,.h2,h2,h3,.h3 {
         'Times New Roman',
         Times,
         serif;
-    font-weight: 700;
-    color: #333333;
 }
 
 h1,.h1{
@@ -105,7 +103,6 @@ a{
 }
 
 p{
- color:#555555;
  a{
     border-bottom:1px solid rgb(0, 0, 0, 0.15);
   &:hover {
@@ -160,6 +157,7 @@ button[type="submit"],.button{
    line-height: 20px;
    text-align: center;
    color: #EEE6DD;
+   display: inline-block;
    &:disabled{
     opacity: 0.75;
     cursor: not-allowed;
@@ -408,8 +406,49 @@ grid-template-columns: 1fr 1fr;
     max-width: 380px;
 }
 
-.text-white,.line-item{
+.line-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .line-image {
+        position: relative;
+    }
+
+  .remove-line {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: -10px;
+      right: -10px;
+      display: none;
+  }
+  &:hover{
+     .remove-line{
+        display: block;
+     }
+  }
+}
+
+.subtotal-line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.text-white{
     color: white;
+}
+
+.cart-lines{
+    margin-top: 20px;
+    border-top: 0.3px solid wheat;
+    border-bottom: 0.3px solid wheat;
+    padding: 20px 0;
+}
+
+.cart-empty-text{
+    margin: 80px 0;
 }
 
 

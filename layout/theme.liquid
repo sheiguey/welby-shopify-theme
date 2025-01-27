@@ -19,5 +19,9 @@
     {{ content_for_layout }}
     {% render 'footer' %}
   </main>
+
+  {% if template !='cart' %}
+     {%  render 'mini-cart' %} 
+  {% endif %}
 </body>
 </html>

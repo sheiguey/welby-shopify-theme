@@ -1,16 +1,16 @@
 <div class="line-item">
     <div class="line-info">
     <a href="{{ item.url }}" class="line-title">
-       <span class="h3"> {{ item.product.title }} </span> 
-        <span>{{item.quantity}}</span>
+       <span class="h3 text-white"> {{ item.product.title }} </span> 
+        <span class="accent-color">x{{item.quantity}}</span>
         </a>
     <p>{{ item.variant.title }} &ndash; {{ item.line_price | money_without_trailing_zeros }} {% if item.quantity>1 %} ({{item.price |  money_without_trailing_zeros}}/ea){% endif %}</p>
     </div>
     <div class="line-image">
         <a href="{{ item.url }}">
-            <img src="{{ item | image_url }}" alt="{{ item.title | escape }}" loading="lazy" width="300px" height="300px">
+            <img src="{{ item | image_url }}" alt="{{ item.title | escape }}" loading="lazy" width="100px" height="100px">
         </a>
-        <a class="remove-line" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+        <a class="remove-line" href="{{ item.url_to_remove }}">
           <img src="{{'x-remove.svg' |  asset_url}}" alt="Remove" width="" height=""/> 
         </a>
     </div>

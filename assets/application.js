@@ -60,4 +60,43 @@ $(document).ready(function () {
       $quantity.val(max).change();
     }
   });
+
+  $(document).on('submit', '#add-to-cart-form', function (event) {
+    event.preventDefault();
+
+    let onCartUpdated = () => {
+      fetch('/cart.js')
+        .then(async (response) => {
+          const res = await response.json();
+          let $dataCartContents = $(context).find('.js-cart-content');
+          let dataCartHtml = $dataCartContents.html();
+          let dataCartItemCount = $dataCartContents.attr(
+            'data-cart-item-count'
+          );
+          let $cartItemCount = $('.js-cart-item-count');
+          $cartItemCount.text(dataCartItemCount);
+          $miniCartContents.html(dataCarthtml);
+
+          console.log(res);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    };
+
+    let addToCartForm = document.querySelector('form[action$="/cart/add"]');
+    let formData = new FormData(addToCartForm);
+
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(async (response) => {
+        const res = await response.json();
+        console.log(res);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  });
 });
